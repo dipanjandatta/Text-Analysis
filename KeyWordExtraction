@@ -1,0 +1,60 @@
+# KeyWord Extraction Code
+# For: Wells Fargo Knowledge Search Tool
+# By: Dipanjan Datta
+# Started: 15th Feb 2016
+# Current Input: file.txt file
+
+# Clear Environment
+rm(list=ls())
+
+# This part is for first time usage
+# Needed= c("tm")   
+
+# install.packages(Needed, dependencies=TRUE)
+
+# Set working directory
+setwd("...")
+
+# Load library tm for text mining
+library(tm)
+
+# Input data
+text= readLines("file.txt",encoding="UTF-8")
+
+# Do not worry about the 
+
+docs = Corpus(VectorSource(text))
+
+# Remove Punctuations
+docs = tm_map(docs, removePunctuation)   
+
+# Removing numbers:
+docs = tm_map(docs, removeNumbers)  
+
+# Converting to lowercase:
+docs = tm_map(docs, content_transformer(tolower)) 
+
+# Removing "stopwords" (common words)
+docs = tm_map(docs, removeWords,stopwords("SMART"))
+
+# Stemwords (not recommended)
+# library(SnowballC)   
+# docs = tm_map(docs, stemDocument)
+
+# Create the term document matrix
+myTDM= TermDocumentMatrix(docs,control = list(minWordLength = 1))
+
+# Organize terms by their frequency:
+m = as.matrix(myTDM)
+
+allwords = rowSums(m)
+
+allwords= data.frame(sort(rowSums(m), decreasing = TRUE))
+
+names(allwords) = "WordCount"
+
+TopWords= head(allwords,10)
+
+View(TopWords)
+
+
