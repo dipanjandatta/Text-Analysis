@@ -1,0 +1,63 @@
+rm(list=ls())
+
+library(tm)
+library(stringi)
+library(proxy)
+library(cluster)
+library(lsa)
+
+wiki= "http://en.wikipedia.org/wiki/"
+
+titles= c(
+          "Lev_Tolstoj", "Franz_Kafka", "J._R._R._Tolkien",
+          "Integral", "Riemann_integral", "Riemann-Stieltjes_integral",
+          "Derivative","Limit_of_a_sequence", "Edvard_Munch", 
+          "Vincent_van_Gogh", "Jan_Matejko"
+          )
+
+articles= character(length(titles))
+
+for (i in 1:length(titles)) {
+  articles[i] = stri_flatten(readLines(stri_paste(wiki, titles[i])), col = " ")
+}
+
+articles[[2]]
+
+articles= stri_replace_all_regex(articles, "<.+?>", " ")
+
+articles= stri_replace_all_fixed(articles, "\t", " ")
+
+docs = Corpus(VectorSource(articles))
+
+docs= tm_map(docs, PlainTextDocument)
+
+docs= tm_map(docs, stripWhitespace)
+
+docs= tm_map(docs, removeWords, stopwords("english"))
+
+docs= tm_map(docs, removePunctuation)
+
+docs= tm_map(docs, content_transformer(tolower))
+
+docs= tm_map(docs, stemDocument)
+
+docs= tm_map(docs, removeNumbers)
+
+docsTDM= TermDocumentMatrix(docs)
+
+lsaSpace= lsa(docsTDM)
+
+lsaMatrix= diag(lsaSpace$sk) %*% t(lsaSpace$dk)
+
+distMatrix= 1 - cosine(lsaMatrix)
+
+distMatrix= as.matrix(distMatrix)
+
+rownames(distMatrix)= titles
+
+colnames(distMatrix)= titles
+
+h= hclust(as.dist(distMatrix), method = "ward.D2")
+
+plot(h, labels = titles, sub = "",cex= 1.5)
+
