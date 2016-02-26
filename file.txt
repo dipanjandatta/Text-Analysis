@@ -1,0 +1,29 @@
+Will blockchains that various financial institutions are investing in nowadays create “smart contracts” that perform financial services without the inefficiency or risk of intervention created by an intermediary counterparty agent?
+
+Smart contract technology, like bitcoin, can circumvent regulatory infrastructures, which could reduce costs for financial transactions. An important feature of a smart contract is the ability to reduce risk through non-discriminatory execution. The lack of a central counterparty agent can enable such contracts to service markets with greater efficiency.
+
+Smart Contracts Evolve
+
+Chris DeRose, community director of the Counterparty Foundation, wrote an article for Paymentsource.com about blockchains which he says are making smart contracts a reality. The principal feature of smart contracts is risk reduction through non-discriminatory execution; the lack of central counterparty will allow the contracts to service markets more efficiently. However, DeRose says more robust financial platforms for algorithmic processing already exist for trusted environments.
+
+The term “smart contract” was coined by Nick Szabo, one of bitcoin’s alleged creators, in 1993 and essentially means “programmable money” or self-automated computer programs that can carry out the terms of any contract. The details of programmable money are still being worked out, but most agree that it refers to a financial security held in escrow by a network that is routed to recipients based on future events, and computer code.
+
+Key Factor: ‘Turing Completeness’
+
+The main feature that financial institutions need in a blockchain is “Turing completeness,” named for mathematician Alan Turing, DeRose noted. This completeness allows a computer language to execute a wide array of instructions. (According to stackoverflow.com, a community of computer programmers, Turing complete system means a system in which a program can be written that will find an answer, although with no guarantees regarding runtime or memory).
+
+The bitcoin network omitted Turing completeness due to the economic incentives the network has been able to create. Supporting the ability to execute transactions opens the blockchain to economic forces that could compromise its security. Allowing the blockchain to process the economic value of higher value assets increases the profit available to bad actors who seek to disrupt market activity by disrupting the blockchain’s performance.
+
+Also read: Overstock’s TØ.com Facilitates First Significant Trade With Block Chain
+
+Private And Public Blockchains
+
+Private blockchains have attempted to provide smart contract options, but they have only been able to do this by removing the ability to settle among untrusted parties. Instead, they rely on security through trust. Whether more efficiency remains in such a private ledger model is questionable, DeRose noted.
+
+Looking at public blockchains, only the Ethereum project offers a robust smart contract platform with Turing completeness. This blockchain’s success has been commensurately underperforming bitcoin’s security standards. The underperformance is largely due to the economic burden its smart contract implementation places on its miners.
+
+Firms such as Symbiont and TØ.com have developed smart contract options through the public blockchain. They have announced they will begin offering “smart securities” on their networks.
+
+Similarly, companies such as Bitt and Tether will allow the use of more reliable stores of value on the bitcoin blockchain. While the smart contract features available in the bitcoin space are limited, making assets available for public manipulation is necessary for more widespread adoption.
+
+Private blockchains will continue to be a staging ground for companies to prototype contracts as public networks mature, DeRose noted. But as companies realize that more robust financial platforms for algorithmic processing already exist in trusted environments, smart contracts on such platforms will be limited to curiosities while the medium of trustless public settlement evolves.
